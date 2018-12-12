@@ -5,6 +5,18 @@ import android.support.v7.app.AppCompatActivity
 
 fun String.lastChar() = this.get(this.length - 1)//使用import导入时 可以使用as关键字更改函数名
 fun String.show() = println(this)
+fun addStr(m: String) = m.get(m.length - 1)
+class User(val name: String, val address: String)
+
+fun saveUser(user: User): Boolean {
+    var result = false
+    fun valite(user: User, name: String, fieldName: String) {
+        if (name.isEmpty())
+            result = false
+    }
+    return result
+}
+
 /**
  * 函数的定义和调用
  */
@@ -13,7 +25,34 @@ class MethodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_method)
         // initListOrMap()
-        extraMethod()
+        // extraMethod()
+        // listArray()
+        //  mapTest()
+        partMethod()
+    }
+
+    private fun partMethod() {
+
+
+    }
+
+    private fun mapTest() {
+        mapOf<Int, String>(1 to "one")
+        val regex = "java".toRegex()
+        val matchEntire = regex.matchEntire("a")
+        if (matchEntire != null) {
+            matchEntire.destructured
+        }
+    }
+
+    private fun listArray() {
+        val arrayListOf = arrayListOf("1", "2", "5", "9")
+        arrayListOf.last()
+
+        arrayListOf.max()
+        for (x in 0..arrayListOf.size)
+            println(x)
+/* for ((m, n) in arrayListOf.withIndex())*/
     }
 
     private fun extraMethod() {
