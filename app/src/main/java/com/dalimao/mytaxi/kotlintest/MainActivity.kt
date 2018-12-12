@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         for (i in 100 downTo 0 step 3) {// 100-0 包含结束值
             println("zouxiaqu$i")
         }
-
+        println("Hello,World".lastChar())
     }
 
     private fun whileTest() {
