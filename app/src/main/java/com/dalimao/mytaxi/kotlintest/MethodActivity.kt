@@ -29,8 +29,8 @@ class MethodActivity : AppCompatActivity() {
 
         val setOf = setOf(7, 3, 6, 9, 10, 23)
         println(setOf.max())
-        for (x in 1..10){
-            i=i++
+        for (x in 1..10) {
+            i = i++
         }
         println(i)
     }
