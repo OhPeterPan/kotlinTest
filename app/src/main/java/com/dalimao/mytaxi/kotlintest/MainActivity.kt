@@ -28,8 +28,11 @@ class MainActivity : AppCompatActivity() {
         val view: View = findViewById(R.id.textView)
 
         view.setOnClickListener {
+            /* val intent = Intent()
+             intent.setClass(this, MethodActivity().javaClass)// MethodActivity::class.java  两种方式
+             startActivity(intent)  */
             val intent = Intent()
-            intent.setClass(this, MethodActivity().javaClass)// MethodActivity::class.java  两种方式
+            intent.setClass(this, PartMethodActivity().javaClass)// MethodActivity::class.java  两种方式
             startActivity(intent)
         }
 

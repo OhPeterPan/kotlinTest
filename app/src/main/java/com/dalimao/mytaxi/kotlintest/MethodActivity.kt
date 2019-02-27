@@ -7,8 +7,19 @@ import android.view.View
 
 fun String.lastChar() = this.get(this.length - 1)//使用import导入时 可以使用as关键字更改函数名
 fun String.show() = println(this)
-fun addStr(m: String) = m.get(m.length - 1)
+fun addStr(m: String) = m.get(m.length - 1)//扩展函数
 class User(val name: String, val address: String)
+
+infix fun String.insert(value: String) = value + get(length - 1)//中缀调用  infix 修饰  表达式体函数
+
+fun String.test(): Char {//代码块体式函数
+
+    return get(length - 1)
+
+}
+
+val String.lastChar: Char
+    get() = get(length - 1)//扩展属性
 
 fun saveUser(user: User): Boolean {
     var result = false
@@ -44,10 +55,14 @@ class MethodActivity : AppCompatActivity() {
         // listArray()
         //  mapTest()
         partMethod()
+        mapOf(1 to "one")
+//        println("java".lastChar)
+        println("kotlin" insert "Hello")
     }
 
     private fun partMethod() {
-
+        val args = arrayOf("3", "6", "7", "11")
+        val listOf = listOf("args", *args)
 
     }
 
@@ -73,6 +88,8 @@ class MethodActivity : AppCompatActivity() {
     private fun extraMethod() {
         println("Kotlin".lastChar())
         "JAVA".show()
+
+
     }
 
     var i = 0
