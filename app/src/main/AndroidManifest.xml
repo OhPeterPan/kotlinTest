@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MethodActivity" />
+        <activity android:name=".PartMethodActivity" />
+        <activity android:name=".ClassTestActivity"></activity>
     </application>
 
 </manifest>

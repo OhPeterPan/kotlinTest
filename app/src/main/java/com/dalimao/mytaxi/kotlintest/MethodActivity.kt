@@ -1,7 +1,9 @@
 package com.dalimao.mytaxi.kotlintest
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 
 fun String.lastChar() = this.get(this.length - 1)//使用import导入时 可以使用as关键字更改函数名
 fun String.show() = println(this)
@@ -24,6 +26,19 @@ class MethodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_method)
+        val view: View = findViewById(R.id.tvMethod)
+        val tvMethod1: View = findViewById(R.id.tvMethod1)
+        view.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, PartMethodActivity().javaClass)// MethodActivity::class.java  两种方式
+            startActivity(intent)
+        }
+
+        tvMethod1.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, ClassTestActivity().javaClass)// MethodActivity::class.java  两种方式
+            startActivity(intent)
+        }
         // initListOrMap()
         // extraMethod()
         // listArray()
