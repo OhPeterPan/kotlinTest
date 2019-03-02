@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".MethodActivity" />
         <activity android:name=".PartMethodActivity" />
-        <activity android:name=".ClassTestActivity"></activity>
+        <activity android:name=".ClassTestActivity" />
+        <activity android:name=".classUI.ClassTestActivity"></activity>
     </application>
 
 </manifest>
