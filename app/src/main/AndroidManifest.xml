@@ -20,6 +20,8 @@
         <activity android:name=".PartMethodActivity" />
         <activity android:name=".ClassTestActivity" />
         <activity android:name=".classUI.ClassTestActivity"></activity>
+        <activity android:name=".classUI.LimbdaActviity" />
+        <activity android:name=".classUI.ListLambdaActivity" />
     </application>
 
 </manifest>

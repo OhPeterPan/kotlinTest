@@ -9,7 +9,7 @@ import com.dalimao.mytaxi.kotlintest.COLOR.RED
 import com.dalimao.mytaxi.kotlintest.bean.Anim
 import com.dalimao.mytaxi.kotlintest.bean.Person
 import com.dalimao.mytaxi.kotlintest.bean.Rectangle
-import com.dalimao.mytaxi.kotlintest.classUI.ClassTestActivity
+import com.dalimao.mytaxi.kotlintest.classUI.ListLambdaActivity
 import java.util.*
 
 enum class COLOR(val r: Int, val g: Int, val b: Int) {
@@ -34,14 +34,16 @@ class MainActivity : AppCompatActivity() {
              startActivity(intent)  */
             val intent = Intent()
 //            intent.setClass(this, PartMethodActivity().javaClass)// MethodActivity::class.java  两种方式
-            intent.setClass(this, ClassTestActivity().javaClass)// MethodActivity::class.java  两种方式
+//            intent.setClass(this, ClassTestActivity().javaClass)// MethodActivity::class.java  两种方式
+//            intent.setClass(this, LambdaActivity().javaClass)// MethodActivity::class.java  两种方式
+            intent.setClass(this, ListLambdaActivity().javaClass)// MethodActivity::class.java  两种方式
             startActivity(intent)
         }
 
         // initData()
         //whileTest()
         //whileTestTwo()
-        forMap()
+//        forMap()
     }
 
     private fun forMap() {
