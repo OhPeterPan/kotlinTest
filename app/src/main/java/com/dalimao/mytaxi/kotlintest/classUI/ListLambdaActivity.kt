@@ -2,11 +2,25 @@ package com.dalimao.mytaxi.kotlintest.classUI
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.view.ViewTreeObserver
+import android.widget.Toast
 import com.dalimao.mytaxi.kotlintest.R
+import kotlinx.android.synthetic.main.activity_main.*
 
+//kotlin中，除了循环结构，大都是表达式
 //lambda表达式学习
 class ListLambdaActivity : AppCompatActivity() {
     data class Person(val name: String, val age: Int)
+
+    //显示的将lambda表达式转换成函数式接口
+    val listener = View.OnClickListener { v ->
+        val result = when (v.id) {
+            R.id.textView -> "textview"
+            else -> throw UnsupportedOperationException()
+        }
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,17 +55,45 @@ class ListLambdaActivity : AppCompatActivity() {
         val generateSequence = generateSequence(0) { it + 1 }
         val takeWhile = generateSequence.takeWhile { it <= 100 }
         println(takeWhile.sum())
+        textView.setOnClickListener(listener)
+
         //File("").parentFile
- /*       val recyclerView = RecyclerView(this)
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {//改变写法的匿名内部类
+        /*       val recyclerView = RecyclerView(this)
+               recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {//改变写法的匿名内部类
 
-        })
-        val textView = TextView(this)
-        textView.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
+               })
+               val textView = TextView(this)
+               textView.setOnClickListener(object : View.OnClickListener {
+                   override fun onClick(v: View?) {
 
+                   }
+               })
+               textView.setOnClickListener { v:View -> println("hahahaha") }*/
+        //改变写法的匿名内部类
+        /*      textView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+                  override fun onGlobalLayout() {
+                      textView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+
+                  }
+              })*/
+        val globalListener = ViewTreeObserver.OnGlobalLayoutListener {
+           // println("打印的GlobalListener:${this}")//这里的this指代的是包围它的类
+        }
+        textView.viewTreeObserver.addOnGlobalLayoutListener(globalListener)
+
+        //带接受者的lambda
+        val alphabet = alphabet()
+        println(alphabet)
+
+    }
+
+    private fun alphabet(): String {
+        val stringBuilder = StringBuilder()
+        return with(stringBuilder, {
+            for (result in 'A'..'Z') {
+                append(result)
             }
+            this.toString()
         })
-        textView.setOnClickListener { v:View -> println("hahahaha") }*/
     }
 }
